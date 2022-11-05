@@ -2,10 +2,10 @@
 #define ZOMBIE_HPP
 #include <iostream>
 
-class Zombie{
+class Zombie {
 
 private:
-	std::string name;
+	std::string _name;
 
 public:
 	Zombie(std::string name);
@@ -15,6 +15,6 @@ public:
 };
 
 Zombie* newZombie( std::string name );
-void randomChump( std::string name );
+void	randomChump( std::string name );
 
 #endif

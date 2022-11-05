@@ -1,7 +1,3 @@
-//
-// Created by delirium on 11.10.22.
-//
-
 #include "HumanB.hpp"
 
 HumanB::~HumanB() {}

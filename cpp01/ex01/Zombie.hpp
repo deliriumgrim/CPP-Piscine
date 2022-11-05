@@ -5,7 +5,7 @@
 class Zombie{
 
 private:
-	std::string name;
+	std::string	_name;
 
 public:
 	Zombie();
@@ -15,6 +15,6 @@ public:
 
 };
 
-Zombie* zombieHorde( int N, std::string name );
+Zombie* zombieHorde( int n, std::string name );
 
 #endif

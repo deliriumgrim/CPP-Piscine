@@ -2,10 +2,10 @@
 
 void Replace::replaceAndWrite()
 {
-	std::ifstream in;
-	std::ofstream out;
-	std::string buf;
-	std::string result;
+	std::ifstream	in;
+	std::ofstream	out;
+	std::string	buf;
+	std::string	result;
 
 	in.open(this->_filename.c_str());
 	out.open((this->_filename + ".replace").c_str());
@@ -17,7 +17,7 @@ void Replace::replaceAndWrite()
 	while (getline(in, buf))
 	{
 		buf.append("\n");
-		checkOccurance(buf);
+		_checkOccurance(buf);
 		result += buf;
 	}
 	out << result;
@@ -25,7 +25,7 @@ void Replace::replaceAndWrite()
 	out.close();
 }
 
-void Replace::checkOccurance(std::string &buf)
+void Replace::_checkOccurance(std::string &buf)
 {
 	size_t found;
 

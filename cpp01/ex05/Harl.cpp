@@ -2,52 +2,48 @@
 
 void Harl::complain(std::string level)
 {
-	int			i;
-	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void		(Harl::*ptr[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	i = 0;
-
-	while (i < 4)
+	std::string	levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void		(Harl::*ptr[4])() = {&Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error};
+	int		i = (level == levels[0]) ? 0 : \
+			(level == levels[1]) ? 1 : \
+			(level == levels[2]) ? 2 : \
+			(level == levels[3]) ? 3 : -1;
+	switch (i) 
 	{
-		if (levels[i] == level) {
+		case -1:
+			std::cout << "This level does not exist" << std::endl;
+			break ;
+		default:
 			(this->*ptr[i])();
-			return ;
-		}
-		i++;
 	}
-	std::cout << "This level is not exist" << std::endl;
 }
 
-void Harl::debug(void)
+void Harl::_debug(void)
 {
 	std::cout << "I love having extra bacon for my "
-				 "7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!"
+				"7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!"
 	<< std::endl;
 }
 
-void Harl::info(void)
+void Harl::_info(void)
 {
 	std::cout << "I cannot believe adding extra bacon costs more money. "
 				 "You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!"
 	<<std::endl;
 }
 
-void Harl::warning(void)
+void Harl::_warning(void)
 {
 	std::cout << "I think I deserve to have some extra bacon for free. "
 				 "I’ve been coming for years whereas you started working here since last month."
-				 << std::endl;
+	<< std::endl;
 }
 
-void Harl::error(void)
+void Harl::_error(void)
 {
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-Harl::Harl() {
+Harl::Harl() {}
 
-}
-
-Harl::~Harl() {
-
-}
+Harl::~Harl() {}

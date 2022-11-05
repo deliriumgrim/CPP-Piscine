@@ -1,16 +1,11 @@
-//
-// Created by delirium on 11.10.22.
-//
-
 #include "Weapon.hpp"
 
-Weapon::Weapon(std::string type) {
+Weapon::Weapon(std::string type) 
+{
 	this->_type = type;
 }
 
-Weapon::~Weapon() {
-
-}
+Weapon::~Weapon() {}
 
 void Weapon::setType(std::string type)
 {

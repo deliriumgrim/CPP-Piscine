@@ -2,8 +2,14 @@
 
 int main()
 {
-	Zombie *horde = zombieHorde(5, "horde");
-	for(int i = 0; i < 5; i++)
+	int numbers = -5;
+	if (numbers <= 0)
+	{
+		std::cout << "Required number must be greater than 0" << std::endl;
+		return 1;
+	}
+	Zombie *horde = zombieHorde(numbers, "horde");
+	for(int i = 0; i < numbers; i++)
 	{
 		horde[i].announce();
 	}
