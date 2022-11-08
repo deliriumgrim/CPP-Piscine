@@ -2,7 +2,7 @@
 
 int main()
 {
-	int numbers = -5;
+	int numbers = 5;
 	if (numbers <= 0)
 	{
 		std::cout << "Required number must be greater than 0" << std::endl;

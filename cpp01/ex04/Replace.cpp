@@ -5,7 +5,6 @@ void Replace::replaceAndWrite()
 	std::ifstream	in;
 	std::ofstream	out;
 	std::string	buf;
-	std::string	result;
 
 	in.open(this->_filename.c_str());
 	out.open((this->_filename + ".replace").c_str());
@@ -14,13 +13,9 @@ void Replace::replaceAndWrite()
 		std::cout << "Failed to open file" << std::endl;
 		return ;
 	}
-	while (getline(in, buf))
-	{
-		buf.append("\n");
-		_checkOccurance(buf);
-		result += buf;
-	}
-	out << result;
+	getline(in, buf, '\0');
+	_checkOccurance(buf);
+	out << buf;
 	in.close();
 	out.close();
 }
