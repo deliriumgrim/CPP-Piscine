@@ -23,7 +23,8 @@ Fixed::Fixed(Fixed const &obj)
 Fixed::~Fixed() {}
 
 Fixed &Fixed::operator = ( const Fixed &obj ) {
-	this->_number = obj.getRawBits();
+	if (this != &obj)
+		this->_number = obj.getRawBits();
 	return (*this);
 }
 
@@ -73,7 +74,7 @@ Fixed Fixed::operator++( int ) {
 	return (Fixed(temp));
 }
 
-Fixed Fixed::operator++( void ) {
+Fixed &Fixed::operator++( void ) {
 	this->_number++;
 	return (*this);
 }
@@ -84,33 +85,33 @@ Fixed Fixed::operator--( int ) {
 	return (Fixed(temp));
 }
 
-Fixed Fixed::operator--( void ) {
+Fixed &Fixed::operator--( void ) {
 	this->_number--;
 	return (*this);
 }
 
-const Fixed Fixed::min(const Fixed &obj1, const Fixed &obj2) {
+const Fixed &Fixed::min(const Fixed &obj1, const Fixed &obj2) {
 	if (obj1 <= obj2)
 		return obj1;
 	else
 		return obj2;
 }
 
-Fixed Fixed::min(Fixed &obj1, Fixed &obj2) {
+Fixed &Fixed::min(Fixed &obj1, Fixed &obj2) {
 	if (obj1 <= obj2)
 		return obj1;
 	else
 		return obj2;
 }
 
-const Fixed Fixed::max(const Fixed &obj1, const Fixed &obj2) {
+const Fixed &Fixed::max(const Fixed &obj1, const Fixed &obj2) {
 	if (obj1 >= obj2)
 		return obj1;
 	else
 		return obj2;
 }
 
-Fixed Fixed::max(Fixed &obj1, Fixed &obj2) {
+Fixed &Fixed::max(Fixed &obj1, Fixed &obj2) {
 	if (obj1 >= obj2)
 		return obj1;
 	else
