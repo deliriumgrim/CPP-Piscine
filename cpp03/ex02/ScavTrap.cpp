@@ -2,18 +2,21 @@
 
 ScavTrap::ScavTrap() {
 	std::cout << "ScavTrap default constructor called" << std::endl;
-	setName("Default");
-	setHp(100);
-	setEp(50);
-	setAttackDamage(20);
+	this->_name = "Default";
+	this->_hp = 100;
+	this->_ep = 50;
+	this->_attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(std::string name) {
 	std::cout << "ScavTrap main constructor called" << std::endl;
-	setName(name);
-	setHp(100);
-	setEp(50);
-	setAttackDamage(20);
+	if (name.empty())
+		this->_name = "Default";
+	else
+		this->_name = name;
+	this->_hp = 100;
+	this->_ep = 50;
+	this->_attackDamage = 20;
 }
 
 ScavTrap::~ScavTrap() {
@@ -27,32 +30,34 @@ ScavTrap::ScavTrap(const ScavTrap &obj) : ClapTrap() {
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &obj) {
 	std::cout << "ScavTrap copy assignment operator called" << std::endl;
-	setName(obj.getName());
-	setHp(obj.getHp());
-	setEp(obj.getEp());
-	setAttackDamage(obj.getAttackDamage());
-	return (*this);
+	if (this == &obj)
+		return *this;
+	this->_name = obj._name;
+	this->_attackDamage = obj._attackDamage;
+	this->_ep = obj._ep;
+	this->_hp = obj._hp;
+	return *this;
 }
 
 void ScavTrap::guardGate() {
-	if (!getHp() || !getEp())
+	if (!this->_hp || !this->_ep)
 	{
 		std::cout << "Hit points or energy points 0" << std::endl;
 		return ;
 	}
-	std::cout << "ScavTrap " << getName() << " got Gate keeper"
+	std::cout << "ScavTrap " << this->_name << " got Gate keeper"
 			  << std::endl;
 }
 
 void ScavTrap::attack(const std::string &target) {
-	if (!getHp() || !getEp())
+	if (!this->_hp || !this->_ep)
 	{
 		std::cout << "Hit points or energy points 0" << std::endl;
 		return ;
 	}
-	std::cout << "ScavTrap " <<  getName()
+	std::cout << "ScavTrap " << this->_name
 			  << " attacks " << target
-			  << " causing " << getAttackDamage()
+			  << " causing " << this->_attackDamage
 			  << " points of damage!" << std::endl;
-	setEp(getEp() - 1);
+	this->_ep--;
 }

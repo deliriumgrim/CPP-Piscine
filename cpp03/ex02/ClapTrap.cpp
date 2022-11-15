@@ -75,38 +75,3 @@ void ClapTrap::beRepaired(unsigned int amount) {
 	this->_hp += amount;
 	this->_ep--;
 }
-
-void ClapTrap::setName(std::string name) {
-	if (name.empty())
-		this->_name = "Default";
-	else
-		this->_name = name;
-}
-
-void ClapTrap::setHp(unsigned int hp) {
-	this->_hp = hp;
-}
-
-void ClapTrap::setEp(unsigned int ep) {
-	this->_ep = ep;
-}
-
-void ClapTrap::setAttackDamage(unsigned int attackDamage) {
-	this->_attackDamage = attackDamage;
-}
-
-std::string ClapTrap::getName() const{
-	return this->_name;
-}
-
-unsigned int ClapTrap::getHp() const {
-	return this->_hp;
-}
-
-unsigned int ClapTrap::getEp() const {
-	return this->_ep;
-}
-
-unsigned int ClapTrap::getAttackDamage() const {
-	return this->_attackDamage;
-}

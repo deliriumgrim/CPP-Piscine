@@ -26,11 +26,13 @@ ClapTrap::ClapTrap(const ClapTrap &obj) {
 
 ClapTrap &ClapTrap::operator = (const ClapTrap &obj) {
 	std::cout << "Copy assignment operator called" << std::endl;
+	if (this == &obj)
+		return *this;
 	this->_name = obj._name;
 	this->_ep = obj._ep;
 	this->_hp = obj._hp;
 	this->_attackDamage = obj._attackDamage;
-	return (*this);
+	return *this;
 }
 
 ClapTrap::~ClapTrap() {
@@ -45,7 +47,7 @@ void ClapTrap::attack(const std::string &target) {
 	}
 	std::cout << "ClapTrap " <<  this->_name
 			  << " attacks " << target
-			  << " causing " << this->_attackDamage
+			  << ", causing " << this->_attackDamage
 			  << " points of damage!" << std::endl;
 	this->_ep--;
 }

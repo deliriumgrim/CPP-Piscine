@@ -26,7 +26,7 @@ int main()
 	}
 	{
 		std::cout << std::endl << "FragTrap tests" << std::endl;
-		FragTrap c("Vasya");
+		FragTrap c("John");
 		c.attack("Snake");
 		c.takeDamage(5);
 		c.beRepaired(2);
@@ -35,7 +35,7 @@ int main()
 		c.beRepaired(1);
 		c.highFivesGuys();
 		c.takeDamage(91);
-		c.highFivesGuys();
+		c.beRepaired(10);
 	}
 	return 0;
 }

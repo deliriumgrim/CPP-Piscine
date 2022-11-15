@@ -6,18 +6,21 @@ FragTrap::~FragTrap() {
 
 FragTrap::FragTrap() {
 	std::cout << "FragTrap default constructor called" << std::endl;
-	setName("Default");
-	setHp(100);
-	setEp(100);
-	setAttackDamage(30);
+	this->_name = "Default";
+	this->_hp = 100;
+	this->_ep = 100;
+	this->_attackDamage = 30;
 }
 
 FragTrap::FragTrap(const std::string &name) {
 	std::cout << "FragTrap main constructor called" << std::endl;
-	setName(name);
-	setHp(100);
-	setEp(100);
-	setAttackDamage(30);
+	if (name.empty())
+		this->_name = "Default";
+	else
+		this->_name = name;
+	this->_hp = 100;
+	this->_ep = 100;
+	this->_attackDamage = 30;
 }
 
 FragTrap::FragTrap(const FragTrap &obj) : ClapTrap() {
@@ -27,18 +30,20 @@ FragTrap::FragTrap(const FragTrap &obj) : ClapTrap() {
 
 FragTrap &FragTrap::operator=(const FragTrap &obj) {
 	std::cout << "FragTrap copy assignment operator called" << std::endl;
-	setName(obj.getName());
-	setHp(obj.getHp());
-	setEp(obj.getEp());
-	setAttackDamage(obj.getAttackDamage());
-	return (*this);
+	if (this == &obj)
+		return *this;
+	this->_name = obj._name;
+	this->_hp = obj._hp;
+	this->_ep = obj._ep;
+	this->_attackDamage = obj._attackDamage;
+	return *this;
 }
 
 void FragTrap::highFivesGuys( void ) {
-	if (!getHp() || !getEp())
+	if (!this->_hp || !this->_ep)
 	{
 		std::cout << "Hit points or energy points 0" << std::endl;
 		return ;
 	}
-	std::cout << "FragTrap " << this->getName() << " high fives guys" << std::endl;
+	std::cout << "FragTrap " << this->_name << " high fives guys" << std::endl;
 }

@@ -13,7 +13,7 @@ int main() {
 	}
 	{
 		std::cout << std::endl << "ScavTrap tests" << std::endl;
-		ScavTrap b("Denis");
+		ScavTrap b("Dennis");
 		b.attack("Spider");
 		b.guardGate();
 		b.takeDamage(50);
