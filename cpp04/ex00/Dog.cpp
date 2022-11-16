@@ -7,6 +7,8 @@ Dog::Dog() : Animal() {
 
 Dog &Dog::operator=(const Dog &obj) {
 	std::cout<< "Dog overload operator \"=\" called" << std::endl;
+	if (this == &obj)
+		return *this;
 	this->type = obj.getType();
 	return *this;
 }

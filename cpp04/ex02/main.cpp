@@ -2,8 +2,8 @@
 #include "Dog.hpp"
 
 int main() {
-	Cat *cat = new Cat();
-	Dog *dog = new Dog();
+	Animal *cat = new Cat();
+	Animal *dog = new Dog();
 
 	cat->makeSound();
 	dog->makeSound();

@@ -7,6 +7,8 @@ WrongCat::WrongCat() : WrongAnimal() {
 
 WrongCat &WrongCat::operator=(const WrongCat &obj) {
 	std::cout<< "WrongCat overload operator \"=\" called" << std::endl;
+	if (this == &obj)
+		return *this;
 	this->type = obj.getType();
 	return *this;
 }

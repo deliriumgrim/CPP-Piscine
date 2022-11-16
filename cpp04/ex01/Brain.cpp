@@ -14,6 +14,8 @@ Brain::Brain( const Brain &obj ) {
 
 Brain &Brain::operator = (const Brain &obj) {
 	std::cout << "Brain overload operator \"=\" called" << std::endl;
+	if (this == &obj)
+		return *this;
 	for(int i = 0; i < (int)this->ideas->length(); i++) {
 		this->ideas[i] = obj.ideas[i];
 	}

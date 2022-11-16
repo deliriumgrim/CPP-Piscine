@@ -23,7 +23,3 @@ Animal::Animal(const Animal &obj) {
 Animal::~Animal() {
 	std::cout << "Animal destructor called" << std::endl;
 }
-
-void Animal::makeSound() const {
-	std::cout << "Animal sound" << std::endl;
-}

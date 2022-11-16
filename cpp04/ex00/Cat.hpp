@@ -7,8 +7,8 @@ public:
 	Cat();
 	Cat(const Cat &obj);
 	Cat & operator = (const Cat &obj);
-	~Cat();
+	virtual ~Cat();
 
-	void makeSound() const;
+	virtual void makeSound() const;
 };
 #endif

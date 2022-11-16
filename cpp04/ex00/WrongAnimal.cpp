@@ -11,6 +11,8 @@ WrongAnimal::WrongAnimal() {
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &obj) {
 	std::cout<< "WrongAnimal overload operator \"=\" called" << std::endl;
+	if (this == &obj)
+		return *this;
 	this->type = obj.getType();
 	return (*this);
 }

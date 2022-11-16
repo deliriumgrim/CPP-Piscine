@@ -8,6 +8,8 @@ Cat::Cat() : Animal() {
 
 Cat &Cat::operator=(const Cat &obj) {
 	std::cout<< "Cat overload operator \"=\" called" << std::endl;
+	if (this == &obj)
+		return *this;
 	this->type = obj.getType();
 	*this->_brain = *obj._brain;
 	return *this;

@@ -11,6 +11,8 @@ Animal::Animal() {
 
 Animal &Animal::operator=(const Animal &obj) {
 	std::cout<< "Animal overload operator \"=\" called" << std::endl;
+	if (this == &obj)
+		return *this;
 	this->type = obj.getType();
 	return (*this);
 }
